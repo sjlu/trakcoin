@@ -1,45 +1,34 @@
-## Laravel Sunrise
+## Trakcoin
 
-Laravel Sunrise bundles the following packages together to help you get started.
-
-* [Laravel](https://github.com/laravel/laravel)
-* [Bower](https://github.com/bower/bower)
-    * [Twitter Bootstrap](https://github.com/twbs/bootstrap)
-    * [jQuery](https://github.com/jquery/jquery)
-    * [Font Awesome](https://github.com/FortAwesome/Font-Awesome)
-    * [LESS Hat](https://github.com/csshat/lesshat)
-* [Grunt](https://github.com/gruntjs/grunt)
-    * [LESS](https://github.com/less/less.js)
+Google Finance but for cryptocurrencies like Bitcoin.
 
 ### Install
 
-* You will need a working [Laravel environment](http://laravel.com/docs/installation), [Node.js installation](http://nodejs.org/download/) and [Bower installation](http://bower.io/).
+* Make sure you have [VirtualBox](https://www.virtualbox.org/wiki/Downloads) and [Vagrant](http://www.vagrantup.com/downloads.html) installed.
 
-* Clone and create an instance of this.
+* In the root directory of your project, run this command to instantiate VM instance.
 
-        curl https://raw.github.com/sjlu/laravel-sunrise/master/install.sh | bash -s folder
+        vagrant up
 
-    * You can replace `folder` with any name you like.
+* After the machine is running, you can login to your VM.
 
-* Install dependencies.
+        vagrant ssh
 
-        curl -sS https://getcomposer.org/installer | php
-        php composer.phar install
-        npm install
-        bower install
+    * While in the VM, you may find these commands useful.
 
-* Start compiler to concat your scripts and compile your LESS.
+        * To browse MySQL
 
-        grunt
+                mysql -u root -d workouts
 
-### Deploying
+        * To migrate and/or seed your database.
 
-You can easily deploy this to **Heroku** by reading this [guide](HEROKU.md).
+                cd public_html/workouts
+                php artisan migrate
+                php artisan db:seed
 
-### Contribute
+        * To start Grunt (frontend resource compiler).
 
-Like any good open-source project, fork it, edit it, **test it**, and send a pull request.
+                cd public_html/workouts
+                grunt watch
 
-### License
-
-Specific licenses are reserved by these packages. Architecture and framework is licensed under the [MIT license](http://opensource.org/licenses/MIT).
+* You can now view your local instance at [localhost:8080](http://localhost:8080).
