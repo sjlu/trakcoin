@@ -7,20 +7,6 @@ module.exports = function (grunt) {
     },
 
     /**
-     * JS compilation
-     * All this does is smush and minify.
-     */
-    concat: {
-      options: {
-        separator: ';'
-      },
-      default: {
-        src: '<%= files.js %>',
-        dest: 'public/assets/scripts.js'
-      }
-    },
-
-    /**
      * LESS compilation
      * If you are creating any new files they
      * should all be referenced in base.less
@@ -74,5 +60,5 @@ module.exports = function (grunt) {
   /*
    * Tasks
    */
-  grunt.registerTask('default', ['concat', 'less', 'watch']);
+  grunt.registerTask('default', ['concat', 'less']);
 };
