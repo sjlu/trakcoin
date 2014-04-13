@@ -34,10 +34,6 @@ module.exports = function (grunt) {
         debounceDelay: 100,
         spawn: false
       },
-      js: {
-        files: '<%= files.js %>',
-        tasks: ['concat']
-      },
       less: {
         files: '<%= files.less %>',
         tasks: ['less']
@@ -60,5 +56,5 @@ module.exports = function (grunt) {
   /*
    * Tasks
    */
-  grunt.registerTask('default', ['concat', 'less']);
+  grunt.registerTask('default', ['less']);
 };
