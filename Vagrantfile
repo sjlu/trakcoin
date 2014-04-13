@@ -14,7 +14,7 @@ Vagrant.configure("2") do |config|
   config.vm.network "forwarded_port", guest: 80, host: 8080
 
   # sync the web folder
-  config.vm.synced_folder "./", "/home/vagrant/public_html/workouts", :owner => "vagrant", :group => "www-data", :mount_options => ["dmode=775", "fmode=664"]
+  config.vm.synced_folder "./", "/home/vagrant/public_html/trakcoin", :owner => "vagrant", :group => "www-data", :mount_options => ["dmode=775", "fmode=664"]
 
   # installer
   config.vm.provision "shell", path: "provision.sh", :keep_color => true

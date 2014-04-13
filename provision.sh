@@ -12,7 +12,7 @@ apt-get install -y vim git curl
 
 # install apache2
 apt-get install -y apache2
-sed -i 's/\/var\/www/\/home\/vagrant\/public_html\/workouts\/public/' /etc/apache2/sites-available/default
+sed -i 's/\/var\/www/\/home\/vagrant\/public_html\/trakcoin\/public/' /etc/apache2/sites-available/default
 sed -i 's/AllowOverride None/AllowOverride All/' /etc/apache2/sites-available/default
 a2enmod rewrite
 /etc/init.d/apache2 restart
@@ -23,7 +23,7 @@ apt-get install -y php5 php5-cli php5-mysql php5-dev php5-json php5-mcrypt php5-
 
 # install mysql
 apt-get install -y mysql-server
-mysql -uroot -e "CREATE DATABASE workouts"
+mysql -uroot -e "CREATE DATABASE trakcoin"
 
 # install node
 apt-get install -y python-software-properties python g++ make
@@ -33,4 +33,4 @@ apt-get install -y nodejs
 sudo npm install -g grunt-cli bower
 
 # do initial build
-su vagrant -c "bash /home/vagrant/public_html/workouts/build.sh"
+su vagrant -c "bash /home/vagrant/public_html/trakcoin/build.sh"
