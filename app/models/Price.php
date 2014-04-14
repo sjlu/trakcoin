@@ -2,8 +2,12 @@
 
 class Price extends Eloquent {
 
+  protected $fillable = array(
+    'amount'
+  );
+
   function source() {
-    $this->belongsTo('Source');
+    return $this->belongsTo('Source');
   }
 
 }

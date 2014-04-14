@@ -2,7 +2,12 @@
 
 class Currency extends Eloquent {
 
+  const BITCOIN = 'bitcoin';
+
   public $timestamps = false;
+  protected $fillable = array(
+    'name'
+  );
 
   function sources() {
     return $this->hasMany('Source');
