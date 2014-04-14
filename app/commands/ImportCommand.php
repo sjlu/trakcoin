@@ -40,7 +40,8 @@ class ImportCommand extends Command {
 		$classes = array(
 			'CoinbaseImporter',
 			'BitstampImporter',
-			'BtceImporter'
+			'BtceImporter',
+			'CryptoTradeImporter'
 		);
 
 		foreach ($classes as $class) {
