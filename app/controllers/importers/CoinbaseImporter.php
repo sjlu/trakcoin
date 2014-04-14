@@ -6,15 +6,8 @@ class CoinbaseImporter extends BaseImporter {
   public static $currency = Currency::BITCOIN;
   public static $source = Source::COINBASE;
 
-  function run() {
-    $amount = $this->getAmount();
-    $this->saveToDatabase(self::$currency, self::$source, $amount);
-  }
-
-  function getAmount() {
-    $data = $this->requestJsonFromUrl(self::$url);
-    $amount = $data->amount;
-    return $amount;
+  function parse($response) {
+    return $response->amount;
   }
 
 }

@@ -37,19 +37,22 @@ class ImportCommand extends Command {
 	 */
 	public function fire()
 	{
-		$classes = array(
-			'CoinbaseImporter',
-			'BitstampImporter',
-			'BtceImporter',
-			'CryptoTradeImporter'
+		$classes = scandir('app/controllers/importers');
+		$ignore = array(
+			'.',
+			'..',
+			'Importer.php',
+			'BaseImporter.php'
 		);
+		$classes = array_diff($classes, $ignore);
 
 		foreach ($classes as $class) {
 			try {
+				$class = str_replace('.php', '', $class);
 				$class = new $class();
 				$class->run();
 			} catch (Exception $e) {
-				// do reporting
+				Log::error('Issue with importer: ' . $class);
 			}
 		}
 	}
