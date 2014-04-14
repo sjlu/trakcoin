@@ -36,16 +36,20 @@ class BaseImporter extends Controller {
   }
 
   protected function saveToDatabase($currency, $source, $price) {
+    // set the latest price to the source
     $source = Source::firstOrCreate(array('name' => $source));
+    $source->latest_price = $price;
+    $source->save();
+
     // check if the source was new or not.
     if (!$source->currency()) {
       $currency = Currency::firstOrCreate(array('name' => $currency));
       $currency->sources()->save($source);
     }
-    // create the price and associate it
+
+    // create historical price data
     $price = Price::create(array('amount' => $price));
     $price->source()->associate($source);
-    $price->save();
   }
 
 }
