@@ -20,6 +20,7 @@ class BaseImporter extends Controller {
     // create the price and associate it
     $price = Price::create(array('amount' => $price));
     $price->source()->associate($source);
+    $price->save();
   }
 
 }

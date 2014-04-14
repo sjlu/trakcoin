@@ -11,7 +11,7 @@ class ImportCommand extends Command {
 	 *
 	 * @var string
 	 */
-	protected $name = 'import';
+	protected $name = 'importer';
 
 	/**
 	 * The console command description.
@@ -37,8 +37,15 @@ class ImportCommand extends Command {
 	 */
 	public function fire()
 	{
-		$class = new CoinbaseImporter();
-		$class->run();
+		$classes = array(
+			'CoinbaseImporter',
+			'BitstampImporter'
+		);
+
+		foreach ($classes as $class) {
+			$class = new $class();
+			$class->run();
+		}
 	}
 
 	/**

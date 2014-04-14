@@ -3,8 +3,8 @@
 class Source extends Eloquent {
 
   const COINBASE = 'coinbase';
+  const BITSTAMP = 'bitstamp';
 
-  public $timestamps = false;
   protected $fillable = array(
     'name'
   );
