@@ -39,12 +39,17 @@ class ImportCommand extends Command {
 	{
 		$classes = array(
 			'CoinbaseImporter',
-			'BitstampImporter'
+			'BitstampImporter',
+			'BtceImporter'
 		);
 
 		foreach ($classes as $class) {
-			$class = new $class();
-			$class->run();
+			try {
+				$class = new $class();
+				$class->run();
+			} catch (Exception $e) {
+				// do reporting
+			}
 		}
 	}
 

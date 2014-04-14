@@ -2,8 +2,9 @@
 
 class Source extends Eloquent {
 
-  const COINBASE = 'coinbase';
-  const BITSTAMP = 'bitstamp';
+  const COINBASE = 'Coinbase';
+  const BITSTAMP = 'Bitstamp';
+  const BTCE = 'BTC-E';
 
   protected $fillable = array(
     'name'
