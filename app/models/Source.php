@@ -12,6 +12,11 @@ class Source extends Eloquent {
     'name'
   );
 
+  protected $hidden = array(
+    'created_at',
+    'currency_id'
+  );
+
   function currency() {
     return $this->belongsTo('Source');
   }

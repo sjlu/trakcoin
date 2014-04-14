@@ -45,11 +45,13 @@ class BaseImporter extends Controller {
     if (!$source->currency()) {
       $currency = Currency::firstOrCreate(array('name' => $currency));
       $currency->sources()->save($source);
+      $currency->save();
     }
 
     // create historical price data
     $price = Price::create(array('amount' => $price));
     $price->source()->associate($source);
+    $price->save();
   }
 
 }
