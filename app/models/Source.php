@@ -18,7 +18,7 @@ class Source extends Eloquent {
   );
 
   function currency() {
-    return $this->belongsTo('Source');
+    return $this->belongsTo('Currency');
   }
 
   function prices() {

@@ -15,9 +15,20 @@ class HomeController extends BaseController {
 	|
 	*/
 
-	public function showWelcome()
-	{
-		return View::make('hello');
+	public function showWelcome() {
+		$data = array();
+		$sources = Source::with('currency')->get();
+		foreach ($sources as $source) {
+			$currency = $source->currency;
+			if (!isset($data[$currency->name])) {
+				$data[$currency->name] = array();
+			}
+			$data[$currency->name][$source->name] = $source;
+		}
+
+		return View::make('hello', array(
+			'data' => $data
+		));
 	}
 
 }

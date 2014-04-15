@@ -13,7 +13,8 @@
 
   <script src="{{ asset('bower_components/jquery/dist/jquery.js') }}"></script>
   <script src="{{ asset('bower_components/twitter/dist/js/bootstrap.js') }}"></script>
-  <script src="{{ asset('assets/scripts.js') }}"></script>
+  @section('scripts')
+  @show
 </head>
 <body>
 

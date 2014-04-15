@@ -2,7 +2,7 @@
 
 class Currency extends Eloquent {
 
-  const BITCOIN = 'bitcoin';
+  const BITCOIN = 'Bitcoin';
 
   public $timestamps = false;
   protected $fillable = array(

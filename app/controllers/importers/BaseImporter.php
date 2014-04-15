@@ -41,12 +41,10 @@ class BaseImporter extends Controller {
     $source->latest_price = $price;
     $source->save();
 
-    // check if the source was new or not.
-    if (!$source->currency()) {
-      $currency = Currency::firstOrCreate(array('name' => $currency));
-      $currency->sources()->save($source);
-      $currency->save();
-    }
+    // save to currency
+    $currency = Currency::firstOrCreate(array('name' => $currency));
+    $currency->sources()->save($source);
+    $currency->save();
 
     // create historical price data
     $price = Price::create(array('amount' => $price));
