@@ -37,7 +37,7 @@ class ImportCommand extends Command {
 	 */
 	public function fire()
 	{
-		$classes = scandir('app/controllers/importers');
+		$classes = scandir(app_path('controllers/importers'));
 		$ignore = array(
 			'.',
 			'..',
